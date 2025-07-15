@@ -7,6 +7,10 @@ const {
 
 const config =
   getDefaultConfig(__dirname);
+config.resolver.assetExts.push(
+  "ttf",
+  "TTF"
+);
 
 module.exports = withNativeWind(
   config,
