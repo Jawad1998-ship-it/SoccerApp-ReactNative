@@ -9,7 +9,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    gil: "../assets/fonts/gil.TTF",
+    gil: require("../assets/fonts/gil.TTF"),
   });
 
   useEffect(() => {
@@ -27,6 +27,9 @@ export default function RootLayout() {
       screenOptions={{
         headerShown: false,
       }}
-    />
+    >
+      <Stack.Screen name="index" />
+      <Stack.Screen name="arena" />
+    </Stack>
   );
 }

@@ -1,4 +1,4 @@
-import { Image, Text, View, TextInput } from "react-native";
+import { Image, Text, View, TextInput, ScrollView } from "react-native";
 import { useState } from "react";
 import {
   BookmarkIcon,
@@ -9,12 +9,13 @@ import {
   StarIcon,
 } from "./components/icons/Icons";
 import VenueContainer from "./components/VenueContainer/VenueContainer";
+import Footer from "./components/Footer/Footer";
 
 export default function Index() {
   const [activeTab, setActiveTab] = useState("venues"); // 'venues' or 'events'
 
   return (
-    <View className="bg-[#F3F3F3]">
+    <ScrollView className="bg-[#F3F3F3] flex-1">
       <View className="bg-[#FFFFFF] px-[20px]">
         <View className="mt-[16px] w-[350px] h-[32px]">
           <View className="flex items-center justify-center flex-row gap-x-[24px]">
@@ -114,9 +115,10 @@ export default function Index() {
           </View>
         </View>
       </View>
-      <View className="mt-[12px] w-full h-full">
+      <View className="mt-[12px] px-[20px] pb-[7px] w-full">
         <VenueContainer />
       </View>
-    </View>
+      <Footer />
+    </ScrollView>
   );
 }
