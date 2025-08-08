@@ -12,7 +12,7 @@ import VenueContainer from "./components/VenueContainer/VenueContainer";
 import Footer from "./components/Footer/Footer";
 
 export default function Index() {
-  const [activeTab, setActiveTab] = useState("venues"); // 'venues' or 'events'
+  const [activeTab, setActiveTab] = useState("venues");
 
   return (
     <ScrollView className="bg-[#F3F3F3] flex-1">
