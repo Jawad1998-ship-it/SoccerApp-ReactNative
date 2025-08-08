@@ -2,9 +2,10 @@ import { View, Text, Image } from "react-native";
 import React, { useState } from "react";
 import Navigation from "../components/Navigation/Navigation";
 import { FootballIcon } from "../components/icons/Icons";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function page() {
-  const [activeTab, setActiveTab] = useState("venues");
+  const [activeTab, setActiveTab] = useState("reserve");
   return (
     <View className="w-full">
       <View className="mt-[8px] w-full flex-row items-center justify-center">
@@ -20,7 +21,7 @@ export default function page() {
           }}
         />
       </View>
-      <View className="px-[18.5px] py-[6px] flex-row items-center justify-between">
+      <View className="bg-white px-[18.5px] py-[6px] flex-row items-center justify-between">
         <View>
           <Text className="text-[#18181B] font-bold leading-[100%] tracking-[0%] text-base font-gil">
             DBox Sports Complex
@@ -35,10 +36,27 @@ export default function page() {
           </button>
         </View>
       </View>
-      <View className="h-[36px] w-full px-[11px] flex-row items-center justify-center gap-x-[24px]">
-        <View onPress={() => setActiveTab("reserve")}>
+      <View className="w-[390px] h-[1.5px]">
+        <LinearGradient
+          colors={["#FFFFFF", "#F0F0F0", "#F0F0F0", "#FFFFFF"]}
+          locations={[0, 0.3, 0.7, 1]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={{
+            flex: 1,
+          }}
+        />
+      </View>
+      <View className=" bg-white border-b-2 border-[#EDEDED] h-[36px] w-full px-[11px] flex-row items-center justify-center gap-x-[24px]">
+        <View
+          className={`h-[36px] w-[70px] flex-row items-center justify-center ${
+            activeTab === "reserve" ? "border-b-2 border-[#6600A5]" : ""
+          }`}
+          onPress={() => setActiveTab("reserve")}
+        >
+          {" "}
           <Text
-            className={`w-[45px] text-xs text-center leading-[100%] tracking-[0%] font-gil ${
+            className={`text-xs flex-row items-center justify-center text-center leading-[100%] tracking-[0%] font-gil ${
               activeTab === "reserve"
                 ? "font-bold text-[#6600A5]"
                 : "font-normal text-[#18181B]"
@@ -46,55 +64,57 @@ export default function page() {
           >
             Reserve
           </Text>
-          {activeTab === "reserve" && (
-            <View className="w-[70px] mt-[8px] border-b-[2px] border-[#6600A5]"></View>
-          )}
         </View>
-        <View onPress={() => setActiveTab("captain-clash")}>
-          <View className="flex-row items-center justify-center">
-            <Text
-              className={`w-[68px] text-xs text-center leading-[100%] tracking-[0%] font-gil ${
-                activeTab === "captain-clash"
-                  ? "font-bold text-[#6600A5]"
-                  : "font-normal text-[#18181B]"
-              }`}
-            >
-              Captain Clash
-            </Text>
-            <FootballIcon />
-          </View>
-
-          {activeTab === "captain-clash" && (
-            <View className="w-[70px] mt-[8px] border-b-[2px] border-[#6600A5]"></View>
-          )}
-        </View>
-        <View onPress={() => setActiveTab("tournaments")}>
+        <View
+          className={`h-[36px] w-[70px] flex-row items-center justify-center ${
+            activeTab === "reserve" ? "border-b-2 border-[#6600A5]" : ""
+          }`}
+          onPress={() => setActiveTab("reserve")}
+        >
+          {" "}
           <Text
-            className={`w-[81px] text-xs text-center leading-[100%] tracking-[0%] font-gil ${
-              activeTab === "events"
+            className={`text-xs flex-row items-center justify-center text-center leading-[100%] tracking-[0%] font-gil ${
+              activeTab === "reserve"
                 ? "font-bold text-[#6600A5]"
                 : "font-normal text-[#18181B]"
             }`}
           >
-            Tournaments (2)
+            Reserve
           </Text>
-          {activeTab === "tournaments" && (
-            <View className="w-[70px] mt-[8px] border-b-[2px] border-[#6600A5]"></View>
-          )}
         </View>
-        <View onPress={() => setActiveTab("turf-insights")}>
+        <View
+          className={`h-[36px] w-[70px] flex-row items-center justify-center ${
+            activeTab === "reserve" ? "border-b-2 border-[#6600A5]" : ""
+          }`}
+          onPress={() => setActiveTab("reserve")}
+        >
+          {" "}
           <Text
-            className={`w-[59px] text-xs text-center leading-[100%] tracking-[0%] font-gil ${
-              activeTab === "turf-insights"
+            className={`text-xs flex-row items-center justify-center text-center leading-[100%] tracking-[0%] font-gil ${
+              activeTab === "reserve"
                 ? "font-bold text-[#6600A5]"
                 : "font-normal text-[#18181B]"
             }`}
           >
-            Turf Insights
+            Reserve
           </Text>
-          {activeTab === "turf-insights" && (
-            <View className="w-[70px] mt-[8px] border-b-[2px] border-[#6600A5]"></View>
-          )}
+        </View>
+        <View
+          className={`h-[36px] w-[70px] flex-row items-center justify-center ${
+            activeTab === "reserve" ? "border-b-2 border-[#6600A5]" : ""
+          }`}
+          onPress={() => setActiveTab("reserve")}
+        >
+          {" "}
+          <Text
+            className={`text-xs flex-row items-center justify-center text-center leading-[100%] tracking-[0%] font-gil ${
+              activeTab === "reserve"
+                ? "font-bold text-[#6600A5]"
+                : "font-normal text-[#18181B]"
+            }`}
+          >
+            Reserve
+          </Text>
         </View>
       </View>
       <View className="mt-[12.5px] px-[20px]">
@@ -105,7 +125,15 @@ export default function page() {
           </Text>
         </Text>
       </View>
-      <View className="mt-[8px] px-[20px]"></View>
+      <View className="mt-[8px] px-[20px] h-[70px]">
+        <View className="h-[46px] w-[32px]">
+          <View className="w-[32px] h-[32px] rounded-[50px] border border-[#FFFFFF] bg-[#F3F3F3]">
+            <Text className="text-[13px] text-black font-normal leading-[100%] tracking-[0%] font-gil">
+              04
+            </Text>
+          </View>
+        </View>
+      </View>
     </View>
   );
 }
